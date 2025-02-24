@@ -23,8 +23,8 @@ Here`s an **example** of store products. You can change them if you want!
 ```js
 const store = [
     { id: '1', name: '🥕 Carrot', price: 2, stock: 10 },
-    { id: '1', name: '🍅 Tomato', price: 3, stock: 8 },
-    { id: '1', name: '🥦 Broccoli', price: 4, stock: 5 },
+    { id: '2', name: '🍅 Tomato', price: 3, stock: 8 },
+    { id: '3', name: '🥦 Broccoli', price: 4, stock: 5 },
 ];
 ```
 
