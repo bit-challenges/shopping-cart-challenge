@@ -1,0 +1,20 @@
+{
+  "name": "challenge",
+  "version": "1.0.0",
+  "description": "challenges",
+  "main": "index.js",
+  "scripts": {
+    "cart": "node --watch 54_group/Rokas/cart.js",
+    "test": "cart"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RokasIme/shopping-cart-challenge.git"
+  },
+  "author": "Rokas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RokasIme/shopping-cart-challenge/issues"
+  },
+  "homepage": "https://github.com/RokasIme/shopping-cart-challenge#readme"
+}
