@@ -44,7 +44,7 @@ You must create the following functions:
 const cart = []; // Empty shopping cart
 
 function addProduct(id, quantity) {}        // Adds product to the cart
-function removeProduct(id, quantity) {}     // Removes a product from the cart
+function removeProduct(id) {}               // Removes a product from the cart
 function updateQuantity(id, quantity) {}    // Updates product quantity in the cart
 function getCartDetails() {}                // Returns all cart items & total price
 function startShopping() {}                 // (EXTRA) Interactive shopping experience
