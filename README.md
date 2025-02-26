@@ -54,9 +54,9 @@ function startShopping() {}                 // (EXTRA) Interactive shopping expe
 
 - You **cannot add more items than available in stock**.
 - If an item is removed from the cart, its **stock is restored**.
-- The ```updateQuantity(id, quantity)``` function changes the quantity of an item in the cart.
-- The ```removeProduct(id)``` function **removes the item completely** from the cart.
-- The ```getCartDetails()``` function should return a **summary of the cart**, including the total price.
+- The `updateQuantity(id, quantity)` function changes the quantity of an item in the cart.
+- The `removeProduct(id)` function **removes the item completely** from the cart.
+- The `getCartDetails()` function should return a **summary of the cart**, including the total price.
 
 ---
 
@@ -65,10 +65,10 @@ function startShopping() {}                 // (EXTRA) Interactive shopping expe
 Copy - paste this into your **browser console** or a **JavaScript file** to test your functions:
 
 ```js
-addProduct('1', 5);     // ✅ Adds 5 Carrots 🥕
-addProduct('2', 10);    // ❌ Error: Only 8 Tomatoes 🍅 available!
-updateQuantity('1', 2)  // ✅ Updates Carrots to 2 in the cart
-removeProduct('1');     // ✅ Completely removes Carrots, stock is restored
+addProduct("1", 5); // ✅ Adds 5 Carrots 🥕
+addProduct("2", 10); // ❌ Error: Only 8 Tomatoes 🍅 available!
+updateQuantity("1", 2); // ✅ Updates Carrots to 2 in the cart
+removeProduct("1"); // ✅ Completely removes Carrots, stock is restored
 
 console.log(getCartDetails());
 ```
@@ -92,7 +92,7 @@ console.log(getCartDetails());
 
 ## 📂 Folder Structure
 
-Each student must create their own folder inside ```54_group/``` with their implementation:
+Each student must create their own folder inside `54_group/` with their implementation:
 
 ```
 54_group/
@@ -117,8 +117,8 @@ This challenge will help you practise:
 ## 🎉 Ready? Start Coding!
 
 1. Fork the repository.
-2. Create your own folder inside ```54_group/```
-3. Write your ```cart.js``` solution.
+2. Create your own folder inside `54_group/`
+3. Write your `cart.js` solution.
 4. Push your solution and submit a pull request!
 
 **Good luck! 🚀🔥**
