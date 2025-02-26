@@ -1,6 +1,6 @@
 # 🛍️ Shopping Cart Challenge
 
-Welcoe to the **Shopping Cart Challenge**! 🚀 Your task is to create a shopping cart system that interacts with a store inventory. This challenge will test your skills in **JavaScript objects, arrays and functions**.
+Welcome to the **Shopping Cart Challenge**! 🚀 Your task is to create a shopping cart system that interacts with a store inventory. This challenge will test your skills in **JavaScript objects, arrays and functions**.
 
 ---
 
@@ -23,8 +23,8 @@ Here`s an **example** of store products. You can change them if you want!
 ```js
 const store = [
     { id: '1', name: '🥕 Carrot', price: 2, stock: 10 },
-    { id: '1', name: '🍅 Tomato', price: 3, stock: 8 },
-    { id: '1', name: '🥦 Broccoli', price: 4, stock: 5 },
+    { id: '2', name: '🍅 Tomato', price: 3, stock: 8 },
+    { id: '3', name: '🥦 Broccoli', price: 4, stock: 5 },
 ];
 ```
 
@@ -44,7 +44,7 @@ You must create the following functions:
 const cart = []; // Empty shopping cart
 
 function addProduct(id, quantity) {}        // Adds product to the cart
-function removeProduct(id, quantity) {}     // Removes a product from the cart
+function removeProduct(id) {}               // Removes a product from the cart
 function updateQuantity(id, quantity) {}    // Updates product quantity in the cart
 function getCartDetails() {}                // Returns all cart items & total price
 function startShopping() {}                 // (EXTRA) Interactive shopping experience
