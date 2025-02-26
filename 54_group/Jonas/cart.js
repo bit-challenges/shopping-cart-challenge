@@ -12,21 +12,22 @@ const store = [
 const cart = [];
 
 function validateId(id) {
-  if (typeof id !== "number" || isNaN(id) || id % 1 !== 0 || id <= 0)
+  if (typeof id !== "number" || isNaN(id) || id % 1 !== 0 || id <= 0) {
     return console.log("invalid id entered");
+  }
   return true;
 }
 
 function validateQuantity(quantity) {
-  if (typeof quantity !== "number" || isNaN(quantity) || quantity % 1 !== 0 || quantity <= 0)
+  if (typeof quantity !== "number" || isNaN(quantity) || quantity % 1 !== 0 || quantity <= 0) {
     return console.log(`invalid quantity entered, must be at least 1`);
+  }
   return true;
 }
 
 // Adds product to the cart
 function addProduct(id, quantity) {
-  if (!validateId(id)) return;
-  if (!validateQuantity(quantity)) return;
+  if (!validateId(id) || !validateQuantity(quantity)) return;
 
   const productInStore = store.find((item) => item.id === String(id));
   if (!productInStore) return console.log(`product with id ${id} doesn't exists in the store`);
@@ -44,9 +45,7 @@ function addProduct(id, quantity) {
 
   cart.push({ product: productInStore, quantity });
   productInStore.stock -= quantity;
-  console.log(
-    `${quantity}x '${productInStore.name}' (id: ${productInStore.id}) added to the cart`
-  );
+  console.log(`${quantity}x '${productInStore.name}' (id: ${productInStore.id}) added to the cart`);
 }
 
 // Removes a product from the cart
@@ -71,8 +70,7 @@ function removeProduct(id) {
 
 // Updates product quantity in the cart
 function updateQuantity(id, quantity) {
-  if (!validateId(id)) return;
-  if (!validateQuantity(quantity)) return;
+  if (!validateId(id) || !validateQuantity(quantity)) return;
 
   const productInCart = cart.find((item) => item?.product?.id === String(id));
   if (!productInCart)
@@ -117,6 +115,7 @@ function printCartDetails() {
   console.log("-".repeat(30));
 }
 
+// Returns all store items
 function printStoreDetails() {
   console.group("--------[Store Inventory]--------");
   if (store.length > 0) {
