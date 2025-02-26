@@ -11,15 +11,18 @@ const store = [
 const cart = [];
 
 function validateId(id) {
-  if (typeof id !== "number" || isNaN(id) || id % 1 !== 0 || id <= 0)
-    return console.log("invalid id provided");
+  if (!Number.isInteger(id) || id <= 0) return console.log("invalid id provided");
   return true;
 }
 
 function validateQuantity(quantity) {
-  if (typeof quantity !== "number" || isNaN(quantity) || quantity % 1 !== 0 || quantity <= 0)
+  if (!Number.isInteger(quantity) || quantity <= 0)
     return console.log(`invalid quantity entered, must be at least 1`);
   return true;
+}
+
+function lithuanianCurrencyFormat(amount) {
+  return amount.toLocaleString("lt-LT", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
 // Adds product to the cart
@@ -98,9 +101,9 @@ function printCartDetails() {
     for (const { product, quantity } of cart) {
       const cost = quantity * product.price;
       console.log(
-        `# id: ${product.id} | name: ${product.name} | quantity: ${quantity} | cost: €${Number(
-          cost
-        ).toFixed(2)}`
+        `# id: ${product.id} | name: ${
+          product.name
+        } | quantity: ${quantity} | cost: €${lithuanianCurrencyFormat(cost)}`
       );
       totalCost += cost;
     }
@@ -117,7 +120,9 @@ function printStoreDetails() {
   console.group("--------[Store Inventory]--------");
   if (store.length > 0) {
     for (const { id, name, price, stock } of store) {
-      console.log(`> id: ${id} | name: ${name} | price: €${price} | stock: ${stock}`);
+      console.log(
+        `> id: ${id} | name: ${name} | price: €${lithuanianCurrencyFormat(price)} | stock: ${stock}`
+      );
     }
   } else {
     console.log("* There is no products in the store");
@@ -143,55 +148,57 @@ function startShoppingWindow() {
     async (answer) => {
       const [ans, itemId, quantity] = answer.split(" ");
       switch (ans) {
-        case "store":
+        case "store": // displays all store items
           printStoreDetails();
           break;
-        case "cart":
+
+        case "cart": // displays all cart items
           printCartDetails();
           break;
-        case "add":
+
+        case "add": // adds product to the cart
           if (!itemId || !quantity) {
             console.log("missing parameters, use 'add [item id] [quantity]'");
           } else {
             addProduct(Number(itemId), Number(quantity));
           }
           break;
-        case "remove":
+
+        case "remove": // removes a product from the cart
           if (!itemId) {
             console.log("missing parameters, use 'remove [item id]'");
           } else {
             removeProduct(Number(itemId));
           }
           break;
-        case "update":
+
+        case "update": // updates product quantity in the cart
           if (!itemId || !quantity) {
             console.log("missing parameters, use 'update [item id] [quantity]'");
           } else {
             updateQuantity(Number(itemId), Number(quantity));
           }
           break;
-        case "exit":
+
+        case "exit": // exits the application
           console.log("Exiting...");
           process.exit(0);
-        default:
-          console.log("Invalid option entered, try again... ");
+
+        default: // if invalid command
+          console.log("Invalid option entered, check command and try again... ");
           break;
       }
 
-      showPressEnterWindow();
+      process.stdout.write("Press any key to continue ");
+      process.stdin.setRawMode(true);
+      process.stdin.resume();
+      process.stdin.once("data", () => {
+        rl.clearLine(process.stdout);
+        process.stdin.setRawMode(false);
+        startShoppingWindow();
+      });
     }
   );
-}
-
-function showPressEnterWindow() {
-  process.stdout.write("Press any key to continue ");
-  process.stdin.setRawMode(true);
-  process.stdin.resume();
-  process.stdin.once("data", () => {
-    rl.clearLine(process.stdout);
-    process.stdin.setRawMode(false);
-    startShoppingWindow();
-  });
 }
 
 startShoppingWindow();
