@@ -1,6 +1,6 @@
 # 🛍️ Shopping Cart Challenge
 
-Welcoe to the **Shopping Cart Challenge**! 🚀 Your task is to create a shopping cart system that interacts with a store inventory. This challenge will test your skills in **JavaScript objects, arrays and functions**.
+Welcome to the **Shopping Cart Challenge**! 🚀 Your task is to create a shopping cart system that interacts with a store inventory. This challenge will test your skills in **JavaScript objects, arrays and functions**.
 
 ---
 
