@@ -11,7 +11,7 @@ const store = [
 const cart = [];
 
 function validateId(id) {
-  if (!Number.isInteger(id) || id <= 0) return console.log("invalid id provided");
+  if (!Number.isInteger(id) || id <= 0) return console.log("invalid product id provided");
   return true;
 }
 
@@ -107,9 +107,9 @@ function printCartDetails() {
       );
       totalCost += cost;
     }
-    console.log(`* Total price: €${Number(totalCost).toFixed(2).toLowerCase("lt")}`);
+    console.log(`* total price: €${lithuanianCurrencyFormat(totalCost)}`);
   } else {
-    console.log("* There is no products in the cart");
+    console.log("* there is no products in the cart");
   }
   console.groupEnd();
   console.log("-".repeat(30));
@@ -125,7 +125,7 @@ function printStoreDetails() {
       );
     }
   } else {
-    console.log("* There is no products in the store");
+    console.log("* there is no products in the store");
   }
   console.groupEnd();
   console.log("-".repeat(33));
@@ -185,7 +185,7 @@ function startShoppingWindow() {
           process.exit(0);
 
         default: // if invalid command
-          console.log("Invalid option entered, check command and try again... ");
+          console.log("invalid option entered, check command and try again... ");
           break;
       }
 
