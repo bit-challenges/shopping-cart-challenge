@@ -1,6 +1,5 @@
 const readline = require("node:readline");
 const { stdin: input, stdout: output } = require("node:process");
-
 const rl = readline.createInterface({ input, output });
 
 const store = [
@@ -12,16 +11,14 @@ const store = [
 const cart = [];
 
 function validateId(id) {
-  if (typeof id !== "number" || isNaN(id) || id % 1 !== 0 || id <= 0) {
-    return console.log("invalid id entered");
-  }
+  if (typeof id !== "number" || isNaN(id) || id % 1 !== 0 || id <= 0)
+    return console.log("invalid id provided");
   return true;
 }
 
 function validateQuantity(quantity) {
-  if (typeof quantity !== "number" || isNaN(quantity) || quantity % 1 !== 0 || quantity <= 0) {
+  if (typeof quantity !== "number" || isNaN(quantity) || quantity % 1 !== 0 || quantity <= 0)
     return console.log(`invalid quantity entered, must be at least 1`);
-  }
   return true;
 }
 
@@ -55,7 +52,7 @@ function removeProduct(id) {
   const productInCartIndex = cart.findIndex((item) => item?.product?.id === String(id));
 
   if (productInCartIndex === -1)
-    return console.log(`there is no such product in the cart (id: ${id}) in the cart to remove`);
+    return console.log(`there is no product with id '${id}' in the cart`);
 
   const productInCart = cart[productInCartIndex];
 
@@ -133,16 +130,16 @@ function printStoreDetails() {
 function startShoppingWindow() {
   console.clear();
   rl.question(
-    `Select options:\n` +
-      [
-        "> type 'store' for display store inventory",
-        "> type 'cart' for display cart inventory",
-        "> type 'add [item id] [quantity]' to add items to the cart",
-        "> type 'remove [item id]' to remove items from the cart",
-        "> type 'update [item id] [quantity]' to change the quantity in the cart",
-        "> type 'exit' to stop shopping",
-      ].join("\n") +
-      "\nEnter: ",
+    [
+      "Available options:",
+      "> type 'store' for display store inventory",
+      "> type 'cart' for display cart inventory",
+      "> type 'add [item id] [quantity]' to add items to the cart",
+      "> type 'remove [item id]' to remove items from the cart",
+      "> type 'update [item id] [quantity]' to change the quantity in the cart",
+      "> type 'exit' to stop shopping",
+      "Type the command: ",
+    ].join("\n"),
     async (answer) => {
       const [ans, itemId, quantity] = answer.split(" ");
       switch (ans) {
@@ -153,16 +150,28 @@ function startShoppingWindow() {
           printCartDetails();
           break;
         case "add":
-          addProduct(Number(itemId), Number(quantity));
+          if (!itemId || !quantity) {
+            console.log("missing parameters, use 'add [item id] [quantity]'");
+          } else {
+            addProduct(Number(itemId), Number(quantity));
+          }
           break;
         case "remove":
-          removeProduct(Number(itemId));
+          if (!itemId) {
+            console.log("missing parameters, use 'remove [item id]'");
+          } else {
+            removeProduct(Number(itemId));
+          }
           break;
         case "update":
-          updateQuantity(Number(itemId), Number(quantity));
+          if (!itemId || !quantity) {
+            console.log("missing parameters, use 'update [item id] [quantity]'");
+          } else {
+            updateQuantity(Number(itemId), Number(quantity));
+          }
           break;
         case "exit":
-          console.log("Exitting...");
+          console.log("Exiting...");
           process.exit(0);
         default:
           console.log("Invalid option entered, try again... ");
