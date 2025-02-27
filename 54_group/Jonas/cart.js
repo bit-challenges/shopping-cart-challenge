@@ -79,18 +79,17 @@ function updateQuantity(id, quantity) {
   if (quantity === productInCart.quantity) return console.log(`cart already has ${quantity} items`);
 
   const totalAvailableQuantity = productInCart.product.stock + productInCart.quantity;
-  if (quantity > totalAvailableQuantity) {
+  if (quantity > totalAvailableQuantity)
     return console.log(
       `store doesnt have that many products, available stock is ${totalAvailableQuantity}`
     );
-  } else {
-    console.log(
-      `updated '${productInCart.product.name}' (id: ${id}) quantity from ${productInCart.quantity} to ${quantity}`
-    );
 
-    productInCart.product.stock -= quantity - productInCart.quantity;
-    productInCart.quantity = quantity;
-  }
+  console.log(
+    `updated '${productInCart.product.name}' (id: ${id}) quantity from ${productInCart.quantity} to ${quantity}`
+  );
+
+  productInCart.product.stock -= quantity - productInCart.quantity;
+  productInCart.quantity = quantity;
 }
 
 // Returns all cart items & total price
@@ -103,11 +102,11 @@ function printCartDetails() {
       console.log(
         `# id: ${product.id} | name: ${
           product.name
-        } | quantity: ${quantity} | cost: €${lithuanianCurrencyFormat(cost)}`
+        } | quantity: ${quantity} | cost: ${lithuanianCurrencyFormat(cost)} €`
       );
       totalCost += cost;
     }
-    console.log(`* total price: €${lithuanianCurrencyFormat(totalCost)}`);
+    console.log(`* total price: ${lithuanianCurrencyFormat(totalCost)} €`);
   } else {
     console.log("* there is no products in the cart");
   }
@@ -121,7 +120,7 @@ function printStoreDetails() {
   if (store.length > 0) {
     for (const { id, name, price, stock } of store) {
       console.log(
-        `> id: ${id} | name: ${name} | price: €${lithuanianCurrencyFormat(price)} | stock: ${stock}`
+        `> id: ${id} | name: ${name} | price: ${lithuanianCurrencyFormat(price)} € | stock: ${stock}`
       );
     }
   } else {
