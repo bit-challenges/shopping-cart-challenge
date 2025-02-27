@@ -1,0 +1,15 @@
+{
+  "name": "shopping-cart-challenge",
+  "version": "1.0.0",
+  "main": "cart.js",
+  "scripts": {
+    "cart": "node --watch cart.js",
+    "test": "node --watch test.js"
+    
+   
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
