@@ -1,8 +1,22 @@
-🛒 Shopping Cart System
+# 🛒 Shopping Cart System
 
 This project is a simple shopping cart system implemented in JavaScript. It allows users to manage a store inventory, add items to a cart, update quantities, remove items, and view a cart summary with a loyalty discount option.
 
-✨ Features
+# 🌟 About
+
+This project is for educational porpuses only. Pull request are welcome, but priority for project authors! Thank you for your cooperation!
+
+Site published at: https://github.com/MantasKukulskis/shopping_cart_challenge
+
+# 🎯 Project features/goals
+
+- Github pages
+- Working with arrays & objects.
+- Implementing business logic (inventory magaement).
+- Using functions effectively.
+- Creating an interactive shopping experience (EXTRA).
+
+# ✨ Features
 
 📦 Store Inventory Management: Displays available products with stock levels.
 
@@ -14,35 +28,24 @@ This project is a simple shopping cart system implemented in JavaScript. It allo
 
 🏷 Cart Summary: Displays total cost with an optional 20% loyalty discount.
 
-✨ Features
+# 📂 Data Structure
 
-📦 Store Inventory Management: Displays available products with stock levels.
-
-➕ Add Items to Cart: Users can add products to their cart while ensuring stock availability.
-
-❌ Remove Items from Cart: Users can remove items, restoring stock to the inventory.
-
-🔄 Update Item Quantity: Users can modify item quantities in the cart.
-
-🏷 Cart Summary: Displays total cost with an optional 20% loyalty discount.
-
-📂 Data Structure
-
+```js
 Store Inventory
 
 const store = [
-{ id: "1", name: "👖 Jeans", price: 80, stock: 15 },
-{ id: "2", name: "👟 Shoes", price: 120, stock: 10 },
-{ id: "3", name: "👕 T-shirts", price: 15, stock: 50 },
-{ id: "4", name: "🧥 Jackets", price: 200, stock: 5 },
-{ id: "5", name: "🧢 Caps", price: 35, stock: 30 }
+    { id: "1", name: "👖 Jeans", price: 80, stock: 15 },
+    { id: "2", name: "👟 Shoes", price: 120, stock: 10 },
+    { id: "3", name: "👕 T-shirts", price: 15, stock: 50 },
+    { id: "4", name: "🧥 Jackets", price: 200, stock: 5 },
+    { id: "5", name: "🧢 Caps", price: 35, stock: 30 }
 ];
 
-Cart Structure
+# Cart Structure
 
 const cart = [];
 
-⚙️ Functions
+# ⚙️ Functions
 
 🛍 addItemToCart(id, quantity)
 
@@ -69,7 +72,9 @@ Displays cart items, total price, and discount details.
 
 console.log(getCartSummary(true));
 
-🚀 How to Start the Project
+```
+
+# 🚀 How to Start the Project
 
 Clone the repository or copy the script file.
 
@@ -86,7 +91,7 @@ Observe the store and cart updates using:
 console.table(store);
 console.table(cart);
 
-📝 Notes
+# 📝 Notes
 
 The system prevents adding items beyond available stock.
 
@@ -95,3 +100,7 @@ Loyalty card holders receive a 20% discount.
 The cart summary updates dynamically based on actions.
 
 Enjoy shopping! 🛒
+
+```
+
+```
